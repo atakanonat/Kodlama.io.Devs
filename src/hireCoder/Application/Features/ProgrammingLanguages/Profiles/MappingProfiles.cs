@@ -13,8 +13,10 @@ namespace Application.Features.ProgrammingLanguages.Profiles
         {
             CreateMap<ProgrammingLanguage, CreatedProgrammingLanguageDTO>().ReverseMap();
             CreateMap<ProgrammingLanguage, EditedProgrammingLanguageDTO>().ReverseMap();
+            CreateMap<ProgrammingLanguage, DeletedProgrammingLanguageDTO>().ReverseMap();
             CreateMap<ProgrammingLanguage, CreateProgrammingLanguageCommand>().ReverseMap();
             CreateMap<ProgrammingLanguage, EditProgrammingLanguageCommand>().ReverseMap();
+            CreateMap<ProgrammingLanguage, DeleteProgrammingLanguageCommand>().ReverseMap();
             CreateMap<ProgrammingLanguage, GetByIdProgrammingLanguageDTO>().ReverseMap();
             CreateMap<ProgrammingLanguageListModel, IPaginate<ProgrammingLanguage>>().ReverseMap();
         }

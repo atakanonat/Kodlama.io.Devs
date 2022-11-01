@@ -19,21 +19,22 @@ namespace WebAPI.Controllers
             return Created("", result);
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> Delete()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> Delete([FromRoute] DeleteProgrammingLanguageCommand deleteProgrammingLanguageCommand)
+        {
+            DeletedProgrammingLanguageDTO result = await Mediator.Send(deleteProgrammingLanguageCommand);
+            return Ok(result);
+        }
 
-        [HttpPost("{Id}")] 
+        [HttpPost("{Id}")]
         public async Task<IActionResult> Update(int Id, EditProgrammingLanguageCommand editProgrammingLanguageCommand)
         {
-            if(Id != editProgrammingLanguageCommand.Id)
+            if (Id != editProgrammingLanguageCommand.Id)
             {
                 return BadRequest();
             }
             EditedProgrammingLanguageDTO result = await Mediator.Send(editProgrammingLanguageCommand);
-            return Accepted("", result);
+            return Ok(result);
         }
 
         [HttpGet]
