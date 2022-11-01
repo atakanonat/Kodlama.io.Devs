@@ -24,7 +24,8 @@ namespace Application.Features.Technologies.Queries.GetByIdTechnology
 
             public async Task<GetByIdTechnologyDTO> Handle(GetByIdTechnologyQuery request, CancellationToken cancellationToken)
             {
-                Technology technology = await _technologyRepository.GetAsyncWithInclude(t => t.Id == request.Id, include: t => t.ProgrammingLanguage);
+                Technology technology = await _technologyRepository.GetAsyncWithInclude(t => t.Id == request.Id,
+                                                                                            include: t => t.Include(p => p.ProgrammingLanguage));
                 GetByIdTechnologyDTO getByIdTechnologyDTO = _mapper.Map<GetByIdTechnologyDTO>(technology);
                 return getByIdTechnologyDTO;
             }

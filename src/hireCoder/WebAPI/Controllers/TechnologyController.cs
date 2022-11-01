@@ -1,5 +1,4 @@
-﻿using Application.Features.ProgrammingLanguages.DTOs;
-using Application.Features.ProgrammingLanguages.Queries.GetByIdProgrammingLanguage;
+﻿using Application.Features.Technologies.Commands;
 using Application.Features.Technologies.DTOs;
 using Application.Features.Technologies.Models;
 using Application.Features.Technologies.Queries.GetByIdTechnology;
@@ -26,6 +25,13 @@ namespace WebAPI.Controllers
         {
             GetByIdTechnologyDTO result = await Mediator.Send(getByIdTechnologyQuery);
             return Ok(result);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> AddAsync([FromBody] CreateTechnologyCommand createTechnologyCommand)
+        {
+            CreatedTechnologyDTO result = await Mediator.Send(createTechnologyCommand);
+            return Created("", result);
         }
     }
 }

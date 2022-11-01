@@ -2,6 +2,7 @@
 using Core.Persistence.Repositories;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 using Persistence.Contexts;
 using System.Linq.Expressions;
 
@@ -13,10 +14,12 @@ namespace Persistence.Repositories
         {
         }
 
-        public async Task<Technology?> GetAsyncWithInclude(Expression<Func<Technology, bool>> predicate,
-            Expression<Func<Technology, object>>? include = null)
+        public async Task<Technology> GetAsyncWithInclude(Expression<Func<Technology, bool>> predicate,
+            Func<IQueryable<Technology>, IIncludableQueryable<Technology, object>>? include = null)
         {
-            return await Context.Set<Technology>().Include(include).FirstOrDefaultAsync(predicate);
+            IQueryable<Technology> queryable = Query();
+            if (include != null) queryable = include(queryable);
+            return await queryable.FirstOrDefaultAsync(predicate);
         }
     }
 }
