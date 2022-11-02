@@ -4,7 +4,7 @@ using AutoMapper;
 using Domain.Entities;
 using MediatR;
 
-namespace Application.Features.Technologies.Commands
+namespace Application.Features.Technologies.Commands.EditTechnology
 {
     public class EditTechnologyCommand : IRequest<EditedTechnologyDTO>
     {

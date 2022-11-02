@@ -5,7 +5,7 @@ using AutoMapper;
 using Domain.Entities;
 using MediatR;
 
-namespace Application.Features.ProgrammingLanguages.Commands
+namespace Application.Features.ProgrammingLanguages.Commands.CreateProgrammingLanguage
 {
     public class CreateProgrammingLanguageCommand : IRequest<CreatedProgrammingLanguageDTO>
     {

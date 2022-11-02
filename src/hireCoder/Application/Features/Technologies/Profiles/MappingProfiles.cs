@@ -1,4 +1,6 @@
-﻿using Application.Features.Technologies.Commands;
+﻿using Application.Features.Technologies.Commands.CreateTechnology;
+using Application.Features.Technologies.Commands.DeleteTechnology;
+using Application.Features.Technologies.Commands.EditTechnology;
 using Application.Features.Technologies.DTOs;
 using Application.Features.Technologies.Models;
 using AutoMapper;
@@ -17,6 +19,8 @@ namespace Application.Features.Technologies.Profiles
             CreateMap<Technology, CreateTechnologyCommand>().ReverseMap();
             CreateMap<Technology, EditedTechnologyDTO>().ReverseMap();
             CreateMap<Technology, EditTechnologyCommand>().ReverseMap();
+            CreateMap<Technology, DeletedTechnologyDTO>().ReverseMap();
+            CreateMap<Technology, DeleteTechnologyCommand>().ReverseMap();
             CreateMap<IPaginate<Technology>, TechnologyListModel>().ReverseMap();
         }
     }

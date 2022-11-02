@@ -1,4 +1,6 @@
-﻿using Application.Features.Technologies.Commands;
+﻿using Application.Features.Technologies.Commands.CreateTechnology;
+using Application.Features.Technologies.Commands.DeleteTechnology;
+using Application.Features.Technologies.Commands.EditTechnology;
 using Application.Features.Technologies.DTOs;
 using Application.Features.Technologies.Models;
 using Application.Features.Technologies.Queries.GetByIdTechnology;
@@ -42,6 +44,13 @@ namespace WebAPI.Controllers
                 return BadRequest();
             }
             EditedTechnologyDTO result = await Mediator.Send(editTechnologyCommand);
+            return Ok(result);
+        }
+
+        [HttpDelete("{Id}")]
+        public async Task<ActionResult> DeleteAsync([FromRoute] DeleteTechnologyCommand deleteTechnologyCommand)
+        {
+            DeletedTechnologyDTO result = await Mediator.Send(deleteTechnologyCommand);
             return Ok(result);
         }
     }

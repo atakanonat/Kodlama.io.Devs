@@ -1,4 +1,6 @@
-﻿using Application.Features.ProgrammingLanguages.Commands;
+﻿using Application.Features.ProgrammingLanguages.Commands.CreateProgrammingLanguage;
+using Application.Features.ProgrammingLanguages.Commands.DeleteProgrammingLanguage;
+using Application.Features.ProgrammingLanguages.Commands.EditProgrammingLanguage;
 using Application.Features.ProgrammingLanguages.DTOs;
 using Application.Features.ProgrammingLanguages.Models;
 using AutoMapper;

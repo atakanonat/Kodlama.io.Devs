@@ -4,7 +4,7 @@ using AutoMapper;
 using Domain.Entities;
 using MediatR;
 
-namespace Application.Features.Technologies.Commands
+namespace Application.Features.Technologies.Commands.CreateTechnology
 {
     public class CreateTechnologyCommand : IRequest<CreatedTechnologyDTO>
     {
