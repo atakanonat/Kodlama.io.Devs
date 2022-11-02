@@ -26,7 +26,7 @@ namespace WebAPI.Controllers
             return Ok(result);
         }
 
-        [HttpPost("{Id}")]
+        [HttpPut("{Id}")]
         public async Task<IActionResult> Update(int Id, EditProgrammingLanguageCommand editProgrammingLanguageCommand)
         {
             if (Id != editProgrammingLanguageCommand.Id)

@@ -33,5 +33,16 @@ namespace WebAPI.Controllers
             CreatedTechnologyDTO result = await Mediator.Send(createTechnologyCommand);
             return Created("", result);
         }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult> UpdateAsync(int id, [FromBody] EditTechnologyCommand editTechnologyCommand)
+        {
+            if (id != editTechnologyCommand.Id)
+            {
+                return BadRequest();
+            }
+            EditedTechnologyDTO result = await Mediator.Send(editTechnologyCommand);
+            return Ok(result);
+        }
     }
 }
